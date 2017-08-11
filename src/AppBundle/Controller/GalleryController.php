@@ -4,26 +4,39 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class GalleryController extends Controller
 {
     /**
      * @Route("/gallery", name="gallery")
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws \LogicException
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+        $images = [
+            'image_1.jpg',
+            'image_2.jpg',
+            'image_1.jpg',
+            'image_2.jpg',
+            'image_1.jpg',
+            'image_2.jpg',
+            'image_1.jpg',
+            'image_2.jpg',
+            'image_1.jpg',
+        ];
+
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $images,
+            $request->query->getInt('different', 1)/*page number*/,
+            4/*limit per page*/
+        );
+
         return $this->render('gallery/index.html.twig', [
-            'images' => [
-                'image_1.jpg',
-                'image_2.jpg',
-                'image_1.jpg',
-                'image_2.jpg',
-                'image_1.jpg',
-                'image_2.jpg',
-                'image_1.jpg',
-                'image_2.jpg',
-                'image_1.jpg',
-            ]
+            'images' => $pagination,
         ]);
     }
 }
