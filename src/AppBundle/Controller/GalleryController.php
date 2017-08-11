@@ -15,13 +15,13 @@ class GalleryController extends Controller
         return $this->render('gallery/index.html.twig', [
             'images' => [
                 'image_1.jpg',
+                'image_2.jpg',
                 'image_1.jpg',
+                'image_2.jpg',
                 'image_1.jpg',
+                'image_2.jpg',
                 'image_1.jpg',
-                'image_1.jpg',
-                'image_1.jpg',
-                'image_1.jpg',
-                'image_1.jpg',
+                'image_2.jpg',
                 'image_1.jpg',
             ]
         ]);
