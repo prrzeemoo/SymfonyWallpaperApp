@@ -1,0 +1,17 @@
+1.  php bin/console doctrine:database:create
+
+2.  php bin/console doctrine:generate:entity (utworzenie kolumn oraz właściwości tych kolumn, np.: typ: int)
+
+3.  php bin/console doctrine:schema:update --dump-sql (powoduje np.:
+                                 CREATE TABLE wallpaper (id INT AUTO_INCREMENT NOT NULL, filename VARCHAR(255) NOT NULL,
+                                 slug VARCHAR(255) NOT NULL, width INT NOT NULL, height INT NOT NULL, UNIQUE INDEX
+                                 UNIQ_D592642C989D9B62 (slug), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf
+                                 8_unicode_ci ENGINE = InnoDB;)
+
+4.  composer require doctrine/doctrine-migrations-bundle "^1.0"
+
+5.  dodanie do klasz AppKernel.php --> new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+
+6.  php bin/console doctrine:migrations:diff
+
+7.  php bin/console doctrine:migrations:migrate
