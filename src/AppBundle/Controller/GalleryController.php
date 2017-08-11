@@ -17,15 +17,15 @@ class GalleryController extends Controller
     public function indexAction(Request $request)
     {
         $images = [
-            'image_1.jpg',
-            'image_2.jpg',
-            'image_1.jpg',
-            'image_2.jpg',
-            'image_1.jpg',
-            'image_2.jpg',
-            'image_1.jpg',
-            'image_2.jpg',
-            'image_1.jpg',
+            'winter.jpg',
+            'summer.jpg',
+            'winter.jpg',
+            'summer.jpg',
+            'winter.jpg',
+            'summer.jpg',
+            'winter.jpg',
+            'summer.jpg',
+            'winter.jpg',
         ];
 
         $paginator  = $this->get('knp_paginator');

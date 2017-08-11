@@ -13,7 +13,7 @@ class DetailController extends Controller
      */
     public function indexAction()
     {
-        $image = 'image_1.jpg';
+        $image = 'winter.jpg';
 
         return $this->render('detail/index.html.twig', [
             'image' => $image,
